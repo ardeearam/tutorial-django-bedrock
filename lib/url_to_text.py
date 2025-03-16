@@ -6,7 +6,7 @@ def url_to_text(url):
 
   response = requests.get(url)
   soup = BeautifulSoup(response.text, "html.parser")
-  return soup.get_text()
+  return soup.get_text(separator="\n\n", strip=True)
 
 if __name__ == "__main__":
 
