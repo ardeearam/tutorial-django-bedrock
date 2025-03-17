@@ -3,7 +3,7 @@
 
   # Create a helper task that gets a URL, and removes HTML tags
   # tutorial-django-bedrock/
-  python lib/url_to_text.py https://lawphil.net/statutes/repacts/ra1949/ra_386_1949.html > knowledge_base/ra386.txt
+  python app/app/lib/url_to_text.py https://lawphil.net/statutes/repacts/ra1949/ra_386_1949.html > knowledge_base/ra386.txt
 
   # Upload ra386.txt to S3
   # Tweak the LLM prompt
@@ -31,6 +31,19 @@
   # app/app/urls.py - add route to home
   # app/app/settings.py - add apps to INSTALLED_APPS 
   # app/app/templates/app/index.html
+
+  # Add backend
+
+  pip install boto3
+  pip freeze > ../requirements.txt
+  # app/app/views.py
+  # app/app/lib/bedrock.py
+
+  # Ensure AWS Profile is set properly
+  aws configure sso
+  export AWS_POFILE=dev
+
+
 
 
 

@@ -6,6 +6,7 @@
     <meta charset="utf-8">
     <title>The install worked successfully! Congratulations!</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
     <style>
       html {
         line-height: 1.15;
@@ -140,6 +141,11 @@
       .main-input {
         padding-top: 10px;
       }
+
+      .main-response {
+        margin-top: 20px;
+        text-align: left;
+      }
       .option {
         display: grid;
         grid-template-columns: min-content 1fr;
@@ -217,16 +223,44 @@
         width: 1px;
       }
     </style>
+
+<script type="text/javascript">
+  function ready(fn) {
+    if (document.readyState !== 'loading') {
+      fn();
+    } else {
+      document.addEventListener('DOMContentLoaded', fn);
+    }
+  }
+
+  function init() {
+    var options = {
+      strings: [{{ message|safe }}],
+      typeSpeed: 1, // Speed in milliseconds per character
+      //backSpeed: 50,  // Speed of backspacing (optional)
+      //backDelay: 1000, // Delay before backspacing starts
+      //startDelay: 0, // Delay before typing starts (optional)
+      loop: false, // Loop the effect
+      showCursor: false 
+    };
+    var typed = new Typed(document.querySelector('.main-response'), options);
+  }
+
+  ready(init);
+</script>
+
   </head>
   <body>
     <main>
       <div class="main-input">
         <form method="POST">
           {% csrf_token %}
-          <textarea placeholder="Ask anything about the Labor Code of the Philippines" rows="10"></textarea>
+          <textarea name="query" placeholder="Ask anything about the Labor Code of the Philippines" rows="10">{{ query }}</textarea>
           <input type="submit" value="Ask" />
         </form>
     </div>
+
+      <div class="main-response"></div>
     </main>
     <footer>
       More tutorials here:
