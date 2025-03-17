@@ -31,6 +31,8 @@
   # app/app/urls.py - add route to home
   # app/app/settings.py - add apps to INSTALLED_APPS 
 
+  # Use Django’s CSRF protection
+
 
 
 

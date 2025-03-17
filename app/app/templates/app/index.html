@@ -222,6 +222,7 @@
     <main>
       <div class="main-input">
         <form method="POST">
+          {% csrf_token %}
           <textarea placeholder="Ask anything about the Labor Code of the Philippines" rows="10"></textarea>
           <input type="submit" value="Ask" />
         </form>
