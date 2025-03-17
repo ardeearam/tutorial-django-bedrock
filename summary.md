@@ -25,13 +25,12 @@
   cd app
   python manage.py runserver
 
-  # Redesign the frontend
+  # Add a minimal frontend
 
   # create views.py
   # app/app/urls.py - add route to home
   # app/app/settings.py - add apps to INSTALLED_APPS 
-
-  # Use Django’s CSRF protection
+  # app/app/templates/app/index.html
 
 
 
