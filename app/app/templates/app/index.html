@@ -4,10 +4,11 @@
 <html lang="en-us" dir="ltr">
   <head>
     <meta charset="utf-8">
-    <title>The install worked successfully! Congratulations!</title>
+    <title>Tutorial: Django + Amazon Bedrock</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
     <style>
+      /* In production projects, this should be refactored to its own CSS file*/
       html {
         line-height: 1.15;
       }
@@ -142,7 +143,7 @@
         padding-top: 10px;
       }
 
-      .main-response {
+      .main-response, .main-references {
         margin-top: 20px;
         text-align: left;
       }
@@ -222,9 +223,28 @@
         white-space: nowrap;
         width: 1px;
       }
+      #header-references {
+        display: none;
+        text-align: left;
+        margin-top: 25px;
+      }
+      blockquote {
+        text-align: left;
+        margin-left: 0;
+        margin-right: 0;
+        font-style: italic
+      }
+      cite {
+        font-weight: bold;
+      }
     </style>
 
 <script type="text/javascript">
+
+  //We write in ES5-compatible code so that it will run
+  //on the widest array of browsers.
+  //No fat arrow functions, sadly.
+
   function ready(fn) {
     if (document.readyState !== 'loading') {
       fn();
@@ -234,16 +254,30 @@
   }
 
   function init() {
-    var options = {
+
+    var mainResponseOptions = {
       strings: [{{ message|safe }}],
-      typeSpeed: 1, // Speed in milliseconds per character
-      //backSpeed: 50,  // Speed of backspacing (optional)
-      //backDelay: 1000, // Delay before backspacing starts
-      //startDelay: 0, // Delay before typing starts (optional)
+      typeSpeed: 0.5, // Speed in milliseconds per character
+
       loop: false, // Loop the effect
-      showCursor: false 
+      showCursor: false,
+      onComplete: function() {
+        
+        document.querySelector('#header-references').style.display = 'block';
+
+        //Display the resources only after the main response
+        var referencesOptions = {
+          strings: [{{ references|safe }}],
+          typeSpeed: 0.5, // Speed in milliseconds per character
+          loop: false, // Loop the effect
+          showCursor: false
+        }
+
+        new Typed(document.querySelector('.main-references'), referencesOptions);
+      } 
     };
-    var typed = new Typed(document.querySelector('.main-response'), options);
+    
+    new Typed(document.querySelector('.main-response'), mainResponseOptions);
   }
 
   ready(init);
@@ -261,6 +295,12 @@
     </div>
 
       <div class="main-response"></div>
+
+      {% if references_count > 0 %}
+      <h2 id="header-references">References:</h2>
+      {% endif %}
+
+      <div class="main-references"></div>
     </main>
     <footer>
       More tutorials here:
