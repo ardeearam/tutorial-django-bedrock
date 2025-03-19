@@ -24,7 +24,7 @@
   pip install django
   pip freeze > requirements.txt
 
-  django-admin startproject app
+  django-admin startproject app .
   cd app
   python manage.py runserver
 

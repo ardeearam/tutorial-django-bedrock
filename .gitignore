@@ -4,3 +4,4 @@ zappa_settings.deploy.json
 .DS_Store
 *.pyc
 knowledge_base/*.txt
+*.zip
