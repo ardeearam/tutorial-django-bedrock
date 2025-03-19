@@ -31,16 +31,16 @@
   # Add a minimal frontend
 
   # create views.py
-  # app/app/urls.py - add route to home
-  # app/app/settings.py - add apps to INSTALLED_APPS 
-  # app/app/templates/app/index.html
+  # app/urls.py - add route to home
+  # app/settings.py - add apps to INSTALLED_APPS 
+  # app/templates/app/index.html
 
   # Add backend
 
   pip install boto3
-  pip freeze > ../requirements.txt
-  # app/app/views.py
-  # app/app/lib/bedrock.py
+  pip freeze > requirements.txt
+  # app/views.py
+  # app/lib/bedrock.py
 
   # Ensure AWS Profile is set properly
   aws configure sso
