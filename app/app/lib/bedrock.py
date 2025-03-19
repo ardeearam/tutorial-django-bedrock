@@ -10,7 +10,7 @@ class Bedrock:
 
     #TODO: Use environment variables
     region_name = 'us-east-1'
-    kb_id = 'BT29E7DRDU'
+    kb_id = 'NK8IZCRYU8'
     model_id = 'anthropic.claude-3-5-sonnet-20241022-v2:0'
     model_arn = 'arn:aws:bedrock:us-east-1:357984781678:inference-profile/us.anthropic.claude-3-5-sonnet-20241022-v2:0'
 
