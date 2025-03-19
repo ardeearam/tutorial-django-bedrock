@@ -8,6 +8,7 @@ class Bedrock:
 
   def retrieve_and_generate(self, query, model_arn=None, kb_id=None):
 
+    #TODO: Use environment variables
     region_name = 'us-east-1'
     kb_id = 'BT29E7DRDU'
     model_id = 'anthropic.claude-3-5-sonnet-20241022-v2:0'
