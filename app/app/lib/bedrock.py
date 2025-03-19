@@ -9,7 +9,7 @@ class Bedrock:
   def retrieve_and_generate(self, query, model_arn=None, kb_id=None):
 
     region_name = 'us-east-1'
-    kb_id = 'IJZCCFH0WQ'
+    kb_id = 'BT29E7DRDU'
     model_id = 'anthropic.claude-3-5-sonnet-20241022-v2:0'
     model_arn = 'arn:aws:bedrock:us-east-1:357984781678:inference-profile/us.anthropic.claude-3-5-sonnet-20241022-v2:0'
 
