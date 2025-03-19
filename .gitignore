@@ -3,4 +3,4 @@ venv/
 zappa_settings.deploy.json
 .DS_Store
 *.pyc
-knowledge_base/
+knowledge_base/*.txt
