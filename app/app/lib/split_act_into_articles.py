@@ -7,20 +7,15 @@ def split_document_stream_using_pattern(filepath, pattern):
     buffer = ''
     article_buffer = ''   #Prevent Article from matching again
     with open(filepath, 'r') as file:
-        line_number = 0
-        yield_number = 0
         for line in file:
             buffer += line
             matches = re.split(pattern, buffer, maxsplit=1, flags=re.MULTILINE)
             if len(matches) > 1:
               yield article_buffer + "\n" + matches[0].strip()
-              yield_number += 1
               article_buffer = matches[1]
               buffer = ''
         if buffer.strip():
             yield buffer.strip()  # Yield the final part if there's leftover content
-    print(line_number)
-
 
 if __name__ == "__main__":
 
@@ -35,7 +30,8 @@ if __name__ == "__main__":
     subdocument_name = f"{basename}-{idx}{ext}"
     subdocument_fullpath = os.path.join(output_directory, subdocument_name)
     print(f"Subdocument {subdocument_fullpath}:\n")
-    print(subdoc)
-    print("-" * 30)
+    print(f"{subdoc[:100]}...")
+
     with open(subdocument_fullpath, 'w') as file:
       file.write(subdoc)
+

@@ -1,12 +1,14 @@
 ```
   # Prepare Amazon Bedrock Knowledge Bases
 
+  # Prepare the data
   # Create a helper task that gets a URL, and removes HTML tags
   # tutorial-django-bedrock/
   python app/app/lib/url_to_text.py https://lawphil.net/statutes/repacts/ra1949/ra_386_1949.html > knowledge_base/ra386.txt
   python app/app/lib/split_act_into_articles.py knowledge_base/ra386.txt knowledge_base
+  rm knowledge_base/ra386.txt       # Do not include the whole text - results will be redundant
+  aws s3 cp . s3://tutorial-django-bedrock --recursive --profile dev
 
-  # Upload ra386.txt to S3
   # Tweak the LLM prompt
   # Test Bedrock Knowledge Base in Console to see if it is sane
 
