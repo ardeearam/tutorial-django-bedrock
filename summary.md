@@ -21,11 +21,10 @@
   python3 -m venv venv
   source venv/bin/activate
 
-  pip install django
+  pip install django boto3
   pip freeze > requirements.txt
 
   django-admin startproject app .
-  cd app
   python manage.py runserver
 
   # Add a minimal frontend
@@ -37,8 +36,6 @@
 
   # Add backend
 
-  pip install boto3
-  pip freeze > requirements.txt
   # app/views.py
   # app/lib/bedrock.py
 
