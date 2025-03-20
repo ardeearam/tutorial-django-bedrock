@@ -5,7 +5,7 @@ import os
 
 def split_document_stream_using_pattern(filepath, pattern):
     buffer = ''
-    article_buffer = ''   #Prevent Article from matching again
+    article_buffer = ''
     with open(filepath, 'r') as file:
         for line in file:
             buffer += line
@@ -22,8 +22,7 @@ if __name__ == "__main__":
   source = sys.argv[1]
   output_directory = sys.argv[2]
 
-  # Usage
-  pattern = r'(?=\bArticle \d+[.]?)'  # Positive lookahead to retain headings
+  pattern = r'(?=\bArticle \d+[.]?)'
   for idx, subdoc in enumerate(split_document_stream_using_pattern(source, pattern), start=1):
     print("-" * 30)
     basename, ext = os.path.splitext(os.path.basename(source))
