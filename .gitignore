@@ -6,3 +6,4 @@ zappa_settings.deploy.json
 knowledge_base/*.txt
 *.zip
 .env
+zappa_settings.json
