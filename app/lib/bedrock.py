@@ -1,22 +1,19 @@
 import boto3
 import json
+from django.conf import settings
 
 class Bedrock:
   def __init__(self):
-    self.client =  boto3.client("bedrock-agent-runtime", region_name='us-east-1')
+    self.client =  boto3.client("bedrock-agent-runtime", region_name=settings.BEDROCK_REGION)
 
+  def retrieve_and_generate(self, query):
 
-  def retrieve_and_generate(self, query, model_arn=None, kb_id=None):
-
-    #TODO: Use environment variables
-    region_name = 'us-east-1'
-    kb_id = 'NK8IZCRYU8'
-    model_id = 'anthropic.claude-3-5-sonnet-20241022-v2:0'
-    model_arn = 'arn:aws:bedrock:us-east-1:357984781678:inference-profile/us.anthropic.claude-3-5-sonnet-20241022-v2:0'
+    kb_id = settings.BEDROCK_KB_ID
+    model_arn = settings.BEDROCK_MODEL_ARN
 
     prompt_template = '''
         Instructions:
-        You are an expert in the Philippine Labor Code. 
+        You are an expert in the Civil Code of the Philippines. 
         Unless otherwise stated, assume that you are talking about Philippine laws. 
         You are answering a client's question. Be direct, straight-to-the-point, professional, but be empathic as well.
         Always state relevant law names and links if possible and available so that the user can double-check and cross-reference.

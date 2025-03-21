@@ -11,6 +11,19 @@ https://docs.djangoproject.com/en/5.1/ref/settings/
 """
 
 from pathlib import Path
+import environ
+import os
+
+# Initialise environment variables
+env = environ.Env()
+# Build paths inside the project like this: BASE_DIR / 'subdir'.
+BASE_DIR = Path(__file__).resolve().parent.parent
+environ.Env.read_env(os.path.join(BASE_DIR, '.env')) 
+
+# Bedrock Settings
+BEDROCK_KB_ID = env('BEDROCK_KB_ID')
+BEDROCK_MODEL_ARN = env('BEDROCK_MODEL_ARN')
+BEDROCK_REGION = env('BEDROCK_REGION', default='us-east-1')
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent

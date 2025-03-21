@@ -5,3 +5,4 @@ zappa_settings.deploy.json
 *.pyc
 knowledge_base/*.txt
 *.zip
+.env
