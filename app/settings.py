@@ -33,13 +33,13 @@ BEDROCK_REGION = env('BEDROCK_REGION', default='us-east-1')
 # See https://docs.djangoproject.com/en/5.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-(0=wyfjbhb=2o%4+b23!bepdta4tbwj-#408botvy_+xh)0b#j'
+SECRET_KEY = env('SECRET_KEY', default='django-insecure-CHANGE-ME-FOR-PROD-PLEASE')
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
 ALLOWED_HOSTS = [
-  'itcuyg1tie.execute-api.us-east-1.amazonaws.com',
+  #IMPORTANT: Add your own hostname here!
   'localhost', 
   '127.0.0.1', 
 ]
