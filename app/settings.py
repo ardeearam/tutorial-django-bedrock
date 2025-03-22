@@ -38,8 +38,11 @@ SECRET_KEY = env('SECRET_KEY', default='django-insecure-CHANGE-ME-FOR-PROD-PLEAS
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
+#Add your own hostname in .env
+HOSTNAME = env('HOSTNAME', default='localhost')
+
 ALLOWED_HOSTS = [
-  #IMPORTANT: Add your own hostname here!
+  HOSTNAME,
   'localhost', 
   '127.0.0.1', 
 ]
